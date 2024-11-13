@@ -38,26 +38,24 @@ st.markdown("""
             animation: fadeIn 2s ease-in-out;
         }
         .glowing {
-            color: #007BFF;  /* Title color */
-            text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 40px #00BFFF; /* Blue glowing effect */
+            color: #020239;  /* Darker blue title color */
+            text-shadow: 0 0 5px #3B47DB, 0 0 10px #3B47DB, 0 0 20px #3B47DB, 0 0 40px #3B47DB; /* Blue glowing effect */
             animation: glowing 1.5s infinite alternate;
         }
         @keyframes glowing {
-            0% { text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 40px #00BFFF; }
-            50% { text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 30px #00BFFF, 0 0 50px #00BFFF; }
-            100% { text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 40px #00BFFF; }
+            0% { text-shadow: 0 0 5px #3B47DB, 0 0 10px #3B47DB, 0 0 20px #3B47DB, 0 0 40px #3B47DB; }
+            50% { text-shadow: 0 0 10px #3B47DB, 0 0 20px #3B47DB, 0 0 30px #3B47DB, 0 0 50px #3B47DB; }
+            100% { text-shadow: 0 0 5px #3B47DB, 0 0 10px #3B47DB, 0 0 20px #3B47DB, 0 0 40px #3B47DB; }
         }
         .glowing-image {
-            filter: drop-shadow(0px 0px 10px #00BFFF) drop-shadow(0px 0px 20px #00BFFF);
+            filter: drop-shadow(0px 0px 10px #3B47DB) drop-shadow(0px 0px 20px #3B47DB);
             animation: glowing 1.5s infinite alternate;
         }
     </style>
     <h1 class="fade-in glowing" style="text-align: center; font-weight: bold;">✨ InsightLens 🤖</h1>
-    <h3 class="fade-in" style="text-align: center; color: #007BFF;">Upload an image to explore its details and ask questions!</h3>
-    <div style="text-align: center;">
-        <img src="bolt_image.png" class="glowing-image" width="200">
-    </div>
-""", unsafe_allow_html=True)
+    <h3 class="fade-in" style="text-align: center; color: #020239;">Upload an image to explore its details and ask questions!</h3>
+    """, unsafe_allow_html=True)
+
 
 
 
