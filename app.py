@@ -58,10 +58,6 @@ st.markdown("""
     <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
 """, unsafe_allow_html=True)
 
-
-
-
-
 st.write("---")
 st.write("### Step 1: Upload a photo, get a quick overview, and dive into details! 🌟")
 
@@ -87,7 +83,10 @@ if uploaded_file is not None and api_key:
         st.markdown(f"<p class='fade-in' style='color: #4CAF50; font-size: 18px;'>🔍 Image Details:\n\n{description}</p>", unsafe_allow_html=True)
         
     except Exception as e:
-        st.error(f"An error occurred while generating the caption and description: {e}")
+        if "HARM_CATEGORY_SEXUALLY_EXPLICIT" in str(e):
+            st.error("🚫 InsightLens couldn't generate details due to sensitive content detected. Try a different image!")
+        else:
+            st.error("🔄 Something went wrong! Try refreshing or using another image.")
 
 st.write("---")
 # Input prompt for the user's question, with a placeholder text
