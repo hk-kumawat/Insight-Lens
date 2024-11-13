@@ -22,7 +22,7 @@ def generate_image_summary(api_key, image):
     # Generate a one-line caption and a concise description for the image
     caption_response = model.generate_content([image])
     description_response = model.generate_content(["Provide a detailed yet brief, structured summary with appropriate emojis to make it engaging and easy to read.", image])
-    return caption_response.text.strip().split('.')[0], description_response.text
+    return caption_response.text, description_response.text
 
 # Initialize the Streamlit app
 st.set_page_config(page_title="📸 InsightLens 🔍", layout="centered")
@@ -31,7 +31,8 @@ st.set_page_config(page_title="📸 InsightLens 🔍", layout="centered")
 theme = st.get_option('theme.primaryColor')  # Fetches the primary color, useful for determining the theme
 
 # Title and subtitle with animations (fade-in and glowing effect)
-title_color = "#003271" if theme == "#FFFFFF" else "#020239"  
+# Set title color based on theme (light = #020239, dark = #003271)
+title_color = "#003271" if theme == "#FFFFFF" else "#020239"  # Dark theme will have #003271, light theme #020239
 
 st.markdown(f"""
     <style>
