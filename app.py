@@ -27,11 +27,12 @@ def generate_image_summary(api_key, image):
 # Initialize the Streamlit app
 st.set_page_config(page_title="📸 InsightLens 🔍", layout="centered")
 
-# Check the Streamlit theme
-theme = st.get_option('theme.primaryColor')  # Fetches the theme color, which can be used to detect the light/dark mode
+# Check the Streamlit theme (light or dark)
+theme = st.get_option('theme.primaryColor')  # Fetches the primary color, useful for determining the theme
 
 # Title and subtitle with animations (fade-in and glowing effect)
-title_color = "#020239" if theme == "#FFFFFF" else "#95b9c7"  # If light mode, use dark color, else default blue glow
+# Set title color based on theme (light = #020239, dark = #95b9c7)
+title_color = "#95b9c7" if theme == "#FFFFFF" else "#020239"  # Dark theme will have #95b9c7, light theme #020239
 
 st.markdown(f"""
     <style>
