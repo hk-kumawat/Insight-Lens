@@ -27,18 +27,23 @@ def generate_image_summary(api_key, image):
 # Initialize the Streamlit app
 st.set_page_config(page_title="📸 InsightLens 🔍", layout="centered")
 
+# Check the Streamlit theme
+theme = st.get_option('theme.primaryColor')  # Fetches the theme color, which can be used to detect the light/dark mode
+
 # Title and subtitle with animations (fade-in and glowing effect)
-st.markdown("""
+title_color = "#020239" if theme == "#FFFFFF" else "#95b9c7"  # If light mode, use dark color, else default blue glow
+
+st.markdown(f"""
     <style>
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        .fade-in {
+        @keyframes fadeIn {{
+            0% {{ opacity: 0; }}
+            100% {{ opacity: 1; }}
+        }}
+        .fade-in {{
             animation: fadeIn 2s ease-in-out;
-        }
-        .glowing {
-            color: #95b9c7;  /* Title base color */
+        }}
+        .glowing {{
+            color: {title_color};  /* Title base color dynamically set */
             text-shadow: 
                 0 0 10px #00A6FF, /* Bright blue glow */
                 0 0 20px #00A6FF, 
@@ -47,12 +52,12 @@ st.markdown("""
                 0 0 50px #00A6FF, 
                 0 0 60px #00A6FF;
             animation: glowing 1.5s infinite alternate;
-        }
-        @keyframes glowing {
-            0% { text-shadow: 0 0 10px #00A6FF, 0 0 20px #00A6FF, 0 0 30px #00A6FF, 0 0 40px #00A6FF; }
-            50% { text-shadow: 0 0 20px #00A6FF, 0 0 30px #00A6FF, 0 0 40px #00A6FF, 0 0 50px #00A6FF; }
-            100% { text-shadow: 0 0 10px #00A6FF, 0 0 20px #00A6FF, 0 0 30px #00A6FF, 0 0 40px #00A6FF; }
-        }
+        }}
+        @keyframes glowing {{
+            0% {{ text-shadow: 0 0 10px #00A6FF, 0 0 20px #00A6FF, 0 0 30px #00A6FF, 0 0 40px #00A6FF; }}
+            50% {{ text-shadow: 0 0 20px #00A6FF, 0 0 30px #00A6FF, 0 0 40px #00A6FF, 0 0 50px #00A6FF; }}
+            100% {{ text-shadow: 0 0 10px #00A6FF, 0 0 20px #00A6FF, 0 0 30px #00A6FF, 0 0 40px #00A6FF; }}
+        }}
     </style>
     <h1 class="fade-in glowing" style="text-align: center; font-weight: bold;">🖼️ InsightLens 🤖</h1>
     <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
@@ -106,11 +111,11 @@ if submit and api_key and image is not None:
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
-   # Show footer
-    st.markdown("---")
-    st.markdown(
-        "<div style='text-align: center; color: #7f8c8d; font-size: 16px;'>"
-        "<p style='text-align: center;'>🔮 <strong>|Brought to Life By</strong> - Harshal Kumawat| 🤖</p>"
-        "</div>",
-        unsafe_allow_html=True
-    )
+# Show footer
+st.markdown("---")
+st.markdown(
+    "<div style='text-align: center; color: #7f8c8d; font-size: 16px;'>"
+    "<p style='text-align: center;'>🔮 <strong>|Brought to Life By</strong> - Harshal Kumawat| 🤖</p>"
+    "</div>",
+    unsafe_allow_html=True
+)
