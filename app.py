@@ -52,21 +52,7 @@ st.markdown("""
     <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
 """, unsafe_allow_html=True)
 
-# Title and subtitle with animations (fade-in)
-st.markdown("""
-    <style>
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
-    </style>
-    <h1 class="fade-in" style="text-align: center; font-weight: bold; color: #3F51B5;">✨ InsightLens 🤖</h1>
-    <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
-    """, unsafe_allow_html=True)
-
+st.write("---")
 st.write("### Step 1: Upload a photo, get a quick overview, and dive into details! 🌟")
 
 # File uploader to allow users to upload an image
