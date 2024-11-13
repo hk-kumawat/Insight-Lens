@@ -38,26 +38,28 @@ st.markdown("""
             animation: fadeIn 2s ease-in-out;
         }
         .glowing {
-            color: #3F51B5;  /* Title color */
-            text-shadow: 0 0 5px #FF5733, 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 40px #FF5733; /* Glowing effect */
+            color: #007BFF;  /* Title color */
+            text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 40px #00BFFF; /* Blue glowing effect */
             animation: glowing 1.5s infinite alternate;
         }
         @keyframes glowing {
-            0% { text-shadow: 0 0 5px #FF5733, 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 40px #FF5733; }
-            50% { text-shadow: 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 30px #FF5733, 0 0 50px #FF5733; }
-            100% { text-shadow: 0 0 5px #FF5733, 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 40px #FF5733; }
+            0% { text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 40px #00BFFF; }
+            50% { text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 30px #00BFFF, 0 0 50px #00BFFF; }
+            100% { text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 40px #00BFFF; }
         }
         .glowing-image {
-            filter: drop-shadow(0px 0px 10px #FF5733) drop-shadow(0px 0px 20px #FF5733);
+            filter: drop-shadow(0px 0px 10px #00BFFF) drop-shadow(0px 0px 20px #00BFFF);
             animation: glowing 1.5s infinite alternate;
         }
     </style>
     <h1 class="fade-in glowing" style="text-align: center; font-weight: bold;">✨ InsightLens 🤖</h1>
-    <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
+    <h3 class="fade-in" style="text-align: center; color: #007BFF;">Upload an image to explore its details and ask questions!</h3>
     <div style="text-align: center;">
         <img src="bolt_image.png" class="glowing-image" width="200">
     </div>
 """, unsafe_allow_html=True)
+
+
 
 st.write("---")
 st.write("### Step 1: Upload a photo, get a quick overview, and dive into details! 🌟")
