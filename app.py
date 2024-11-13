@@ -38,23 +38,25 @@ st.markdown("""
             animation: fadeIn 2s ease-in-out;
         }
         .glowing {
-            color: #020239;  /* Darker blue title color */
-            text-shadow: 0 0 5px #3B47DB, 0 0 10px #3B47DB, 0 0 20px #3B47DB, 0 0 40px #3B47DB; /* Blue glowing effect */
+            color: #020239;  /* Dark blue base color for the title */
+            text-shadow: 
+                0 0 10px #00D4FF, /* Bright blue glow */
+                0 0 20px #00D4FF, 
+                0 0 30px #00D4FF, 
+                0 0 40px #00D4FF, 
+                0 0 50px #00D4FF, 
+                0 0 60px #00D4FF;
             animation: glowing 1.5s infinite alternate;
         }
         @keyframes glowing {
-            0% { text-shadow: 0 0 5px #3B47DB, 0 0 10px #3B47DB, 0 0 20px #3B47DB, 0 0 40px #3B47DB; }
-            50% { text-shadow: 0 0 10px #3B47DB, 0 0 20px #3B47DB, 0 0 30px #3B47DB, 0 0 50px #3B47DB; }
-            100% { text-shadow: 0 0 5px #3B47DB, 0 0 10px #3B47DB, 0 0 20px #3B47DB, 0 0 40px #3B47DB; }
-        }
-        .glowing-image {
-            filter: drop-shadow(0px 0px 10px #3B47DB) drop-shadow(0px 0px 20px #3B47DB);
-            animation: glowing 1.5s infinite alternate;
+            0% { text-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 30px #00D4FF, 0 0 40px #00D4FF; }
+            50% { text-shadow: 0 0 20px #00D4FF, 0 0 30px #00D4FF, 0 0 40px #00D4FF, 0 0 50px #00D4FF; }
+            100% { text-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 30px #00D4FF, 0 0 40px #00D4FF; }
         }
     </style>
     <h1 class="fade-in glowing" style="text-align: center; font-weight: bold;">✨ InsightLens 🤖</h1>
-    <h3 class="fade-in" style="text-align: center; color: #020239;">Upload an image to explore its details and ask questions!</h3>
-    """, unsafe_allow_html=True)
+    <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
+""", unsafe_allow_html=True)
 
 
 
