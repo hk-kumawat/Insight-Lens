@@ -21,7 +21,7 @@ def generate_image_summary(api_key, image):
     model = genai.GenerativeModel(model_name="gemini-1.5-flash")
     # Generate a one-line caption and a concise description for the image
     caption_response = model.generate_content([image])
-    description_response = model.generate_content(["Provide a concise and engaging summary with emojis.", image])
+    description_response = model.generate_content(["Provide a detailed yet brief, structured summary with appropriate emojis to make it engaging and easy to read.", image])
     return caption_response.text.strip().split('.')[0], description_response.text
 
 # Initialize the Streamlit app
