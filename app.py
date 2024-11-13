@@ -27,12 +27,9 @@ def generate_image_summary(api_key, image):
 # Initialize the Streamlit app
 st.set_page_config(page_title="📸 InsightLens 🔍", layout="centered")
 
-# Check the Streamlit theme (light or dark)
-theme = st.get_option('theme.primaryColor')  # Fetches the primary color, useful for determining the theme
-
 # Title and subtitle with animations (fade-in and glowing effect)
-# Set title color based on theme (dark = #1c4966, light = #020239)
-title_color = "#1c4966" if theme == "#000000" else "#020239"  # Dark theme will have #1c4966, light theme #020239
+# Set title color to #1c4966 for both light and dark themes
+title_color = "#1c4966"  # Static color for both light and dark themes
 
 st.markdown(f"""
     <style>
@@ -44,7 +41,7 @@ st.markdown(f"""
             animation: fadeIn 2s ease-in-out;
         }}
         .glowing {{
-            color: {title_color};  /* Title base color dynamically set */
+            color: {title_color};  /* Title color dynamically set */
             text-shadow: 
                 0 0 10px #00A6FF, /* Bright blue glow */
                 0 0 20px #00A6FF, 
