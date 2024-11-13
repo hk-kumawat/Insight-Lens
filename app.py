@@ -27,10 +27,22 @@ def generate_image_summary(api_key, image):
 # Initialize the Streamlit app
 st.set_page_config(page_title="📸 InsightLens 🔍", layout="centered")
 
-# Title and subtitle with animations
-st.markdown("<h1 style='text-align: center; font-weight: bold;'>✨ InsightLens 🤖</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center;'>Upload an image to explore its details and ask questions! 🌟</h3>", unsafe_allow_html=True)
-st.write("### Step 1: Upload a photo, get a quick overview, and dive into details!")
+# Title and subtitle with animations (fade-in)
+st.markdown("""
+    <style>
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+    <h1 class="fade-in" style="text-align: center; font-weight: bold; color: #3F51B5;">✨ InsightLens 🤖</h1>
+    <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions! 🌟</h3>
+    """, unsafe_allow_html=True)
+
+st.write("### Step 1: Upload a photo, get a quick overview, and dive into details! 🌟")
 
 # File uploader to allow users to upload an image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
@@ -47,11 +59,11 @@ if uploaded_file is not None and api_key:
         # Generate a brief caption and a structured description for the image
         caption, description = generate_image_summary(api_key, image)
         
-        # Display the auto-generated caption with style
-        st.markdown(f"<p style='color: #FF5733; font-size: 20px; text-align: center; font-weight: bold;'>{caption}</p>", unsafe_allow_html=True)
+        # Display the auto-generated caption with style (formatted and colorful)
+        st.markdown(f"<p class='fade-in' style='color: #FF5733; font-size: 24px; text-align: center; font-weight: bold;'>{caption}</p>", unsafe_allow_html=True)
         
         # Display the structured and emoji-enhanced description
-        st.markdown(f"**🔍 Image Details:**\n\n{description}", unsafe_allow_html=True)
+        st.markdown(f"<p class='fade-in' style='color: #4CAF50; font-size: 18px;'>**🔍 Image Details:**\n\n{description}</p>", unsafe_allow_html=True)
         
     except Exception as e:
         st.error(f"An error occurred while generating the caption and description: {e}")
