@@ -27,6 +27,31 @@ def generate_image_summary(api_key, image):
 # Initialize the Streamlit app
 st.set_page_config(page_title="📸 InsightLens 🔍", layout="centered")
 
+# Title and subtitle with animations (fade-in and glowing effect)
+st.markdown("""
+    <style>
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        .glowing {
+            color: #3F51B5;  /* Title color */
+            text-shadow: 0 0 5px #FF5733, 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 40px #FF5733; /* Glowing effect */
+            animation: glowing 1.5s infinite alternate;
+        }
+        @keyframes glowing {
+            0% { text-shadow: 0 0 5px #FF5733, 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 40px #FF5733; }
+            50% { text-shadow: 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 30px #FF5733, 0 0 50px #FF5733; }
+            100% { text-shadow: 0 0 5px #FF5733, 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 40px #FF5733; }
+        }
+    </style>
+    <h1 class="fade-in glowing" style="text-align: center; font-weight: bold;">✨ InsightLens 🤖</h1>
+    <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
+""", unsafe_allow_html=True)
+
 # Title and subtitle with animations (fade-in)
 st.markdown("""
     <style>
@@ -39,7 +64,7 @@ st.markdown("""
         }
     </style>
     <h1 class="fade-in" style="text-align: center; font-weight: bold; color: #3F51B5;">✨ InsightLens 🤖</h1>
-    <h3 class="fade-in" style="text-align: center; color: #FF5722;"><eu>Upload an image to explore its details and ask questions! 🌟</eu></h3>
+    <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
     """, unsafe_allow_html=True)
 
 st.write("### Step 1: Upload a photo, get a quick overview, and dive into details! 🌟")
@@ -84,3 +109,12 @@ if submit and api_key and image is not None:
         st.balloons()  # Celebration balloons for an interactive touch!
     except Exception as e:
         st.error(f"An error occurred: {e}")
+
+   # Show footer
+    st.markdown("---")
+    st.markdown(
+        "<div style='text-align: center; color: #7f8c8d; font-size: 16px;'>"
+        "<p style='text-align: center;'>🔮 <strong>|Brought to Life By</strong> - Harshal Kumawat| 🤖</p>"
+        "</div>",
+        unsafe_allow_html=True
+    )
