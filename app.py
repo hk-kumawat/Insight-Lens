@@ -31,8 +31,8 @@ st.set_page_config(page_title="📸 InsightLens 🔍", layout="centered")
 theme = st.get_option('theme.primaryColor')  # Fetches the primary color, useful for determining the theme
 
 # Title and subtitle with animations (fade-in and glowing effect)
-# Set title color based on theme (light = #020239, dark = #003271)
-title_color = "#1c4966" if theme == "#FFFFFF" else "#020239"  # Dark theme will have #003271, light theme #020239
+# Set title color based on theme (dark = #1c4966, light = #020239)
+title_color = "#1c4966" if theme == "#000000" else "#020239"  # Dark theme will have #1c4966, light theme #020239
 
 st.markdown(f"""
     <style>
