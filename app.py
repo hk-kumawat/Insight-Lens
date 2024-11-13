@@ -20,7 +20,7 @@ def generate_image_summary(api_key, image):
     genai.configure(api_key=api_key)
     model = genai.GenerativeModel(model_name="gemini-1.5-flash")
     # Generate a one-line caption and a concise description for the image
-    caption_response = model.generate_content([image])
+    caption_response = model.generate_content(["Provide a short, one-line caption describing the image.", image])
     description_response = model.generate_content(["Provide a detailed yet brief, structured summary with appropriate emojis to make it engaging and easy to read.", image])
     return caption_response.text, description_response.text
 
