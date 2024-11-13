@@ -97,7 +97,7 @@ st.write("### Step 2: Ask a Question About the Image")
 prompt = st.text_input("Ask something about the image (e.g., 'What is happening here?'):", key="input")
 
 # Button to submit the request with an animation effect
-submit = st.button("🔮 Get AI Insight")
+submit = st.button("🔍 Get Answer")
 
 # If the submit button is clicked, configure the API key and get the Gemini AI response
 if submit and api_key and image is not None:
