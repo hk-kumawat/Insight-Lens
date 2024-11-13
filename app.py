@@ -47,9 +47,16 @@ st.markdown("""
             50% { text-shadow: 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 30px #FF5733, 0 0 50px #FF5733; }
             100% { text-shadow: 0 0 5px #FF5733, 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 40px #FF5733; }
         }
+        .glowing-image {
+            filter: drop-shadow(0px 0px 10px #FF5733) drop-shadow(0px 0px 20px #FF5733);
+            animation: glowing 1.5s infinite alternate;
+        }
     </style>
     <h1 class="fade-in glowing" style="text-align: center; font-weight: bold;">✨ InsightLens 🤖</h1>
     <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
+    <div style="text-align: center;">
+        <img src="bolt_image.png" class="glowing-image" width="200">
+    </div>
 """, unsafe_allow_html=True)
 
 st.write("---")
@@ -74,7 +81,7 @@ if uploaded_file is not None and api_key:
         st.markdown(f"<p class='fade-in' style='color: #FF5733; font-size: 24px; text-align: center; font-weight: bold;'>{caption}</p>", unsafe_allow_html=True)
         
         # Display the structured and emoji-enhanced description
-        st.markdown(f"<p class='fade-in' style='color: #4CAF50; font-size: 18px;'>**🔍 Image Details:**\n\n{description}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p class='fade-in' style='color: #4CAF50; font-size: 18px;'>🔍 Image Details:\n\n{description}</p>", unsafe_allow_html=True)
         
     except Exception as e:
         st.error(f"An error occurred while generating the caption and description: {e}")
