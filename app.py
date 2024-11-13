@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 #api_key = os.getenv("API_KEY")  # Fetches the API key from the .env file
 
-st.secrets["GEMINI_API_KEY"]
+api_key = st.secrets["GEMINI_API_KEY"]
+
 # Function to get the Gemini AI response
 def get_gemini_response(api_key, prompt, image):
     genai.configure(api_key=api_key)
