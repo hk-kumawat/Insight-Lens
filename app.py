@@ -79,6 +79,7 @@ if uploaded_file is not None and api_key:
     except Exception as e:
         st.error(f"An error occurred while generating the caption and description: {e}")
 
+st.write("---")
 # Input prompt for the user's question, with a placeholder text
 st.write("### Step 2: Ask a Question About the Image")
 prompt = st.text_input("Ask something about the image (e.g., 'What is happening here?'):", key="input")
