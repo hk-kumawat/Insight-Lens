@@ -32,7 +32,7 @@ theme = st.get_option('theme.primaryColor')  # Fetches the primary color, useful
 
 # Title and subtitle with animations (fade-in and glowing effect)
 # Set title color based on theme (light = #020239, dark = #95b9c7)
-title_color = "#95b9c7" if theme == "#FFFFFF" else "#020239"  # Dark theme will have #95b9c7, light theme #020239
+title_color = "000642" if theme == "#FFFFFF" else "#020239"  # Dark theme will have #95b9c7, light theme #020239
 
 st.markdown(f"""
     <style>
