@@ -61,7 +61,7 @@ st.markdown(f"""
         }}
     </style>
     <h1 class="fade-in glowing" style="text-align: center; font-weight: bold;">🖼️ InsightLens 🤖</h1>
-    <h3 class="fade-in glowing" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
+    <h3 class="fade-in" style="text-align: center; color: #FF5722;">Upload an image to explore its details and ask questions!</h3>
 """, unsafe_allow_html=True)
 
 st.write("---")
