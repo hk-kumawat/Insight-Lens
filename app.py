@@ -38,7 +38,7 @@ st.markdown("""
             animation: fadeIn 2s ease-in-out;
         }
         .glowing {
-            color: #2b547f;  /* Title base color */
+            color: #95b9c7;  /* Title base color */
             text-shadow: 
                 0 0 10px #00A6FF, /* Bright blue glow */
                 0 0 20px #00A6FF, 
