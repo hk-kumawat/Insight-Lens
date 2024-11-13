@@ -39,7 +39,7 @@ st.markdown("""
         }
     </style>
     <h1 class="fade-in" style="text-align: center; font-weight: bold; color: #3F51B5;">✨ InsightLens 🤖</h1>
-    <h3 class="fade-in" style="text-align: center; color: #FF5722;"><eu>Upload an image to explore its details and ask questions! 🌟<eu></h3>
+    <h3 class="fade-in" style="text-align: center; color: #FF5722;"><eu>Upload an image to explore its details and ask questions! 🌟</eu></h3>
     """, unsafe_allow_html=True)
 
 st.write("### Step 1: Upload a photo, get a quick overview, and dive into details! 🌟")
