@@ -5,7 +5,7 @@ import streamlit as st
 #from dotenv import load_dotenv
 
 # Load the environment variables, including the API key
-load_dotenv()
+#load_dotenv()
 api_key = st.secrets["GEMINI_API_KEY"]  # Fetches the API key from Streamlit secrets
 
 # Function to get the Gemini AI response
