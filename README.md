@@ -1,6 +1,8 @@
 # **InsightLens 🖼️🔍**
 
-![InsightLens Logo](https://github.com/user-attachments/assets/8c9825be-d9de-4488-a770-24431601b571)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3ec8fdf6-c725-4277-86e8-7e10c4ba6772" alt="InsightLens" width="500">
+</p>
 
 ## Overview
 
@@ -10,7 +12,7 @@ Whether you're using InsightLens to enhance **content creation**, explore **visu
 
 ## Live Demo
 
-Experience InsightLens in action! 👉🏻 [![Try InsightLens 🌟](https://insight-lens.streamlit.app/)
+Experience InsightLens in action! 👉🏻 [![Try InsightLens! 🌟](https://img.shields.io/badge/Try%20InsightLens!-blue)](https://insight-lens.streamlit.app/)
 
 <br>
 
