@@ -54,7 +54,7 @@ if uploaded_file is not None and caption_api_key and description_api_key:
     try:
         # Open the uploaded image
         image = PIL.Image.open(uploaded_file)
-        st.image(image, use_column_width=True)
+        st.image(image, use_container_width=True)
         
         # Generate caption using the first API key
         caption = generate_caption(caption_api_key, image)
