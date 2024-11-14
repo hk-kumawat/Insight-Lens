@@ -1,11 +1,7 @@
 import google.generativeai as genai
 import PIL.Image
 import streamlit as st
-#import os
-#from dotenv import load_dotenv
 
-# Load the environment variables, including the API key
-#load_dotenv()
 api_key = st.secrets["GEMINI_API_KEY"]  # Fetches the API key from Streamlit secrets
 
 # Function to get the Gemini AI response
@@ -28,7 +24,6 @@ def generate_image_summary(api_key, image):
 st.set_page_config(page_title="📸 InsightLens 🔍", layout="centered")
 
 # Title and subtitle with animations (fade-in and glowing effect)
-# Set title color to #1c4966 for both light and dark themes
 title_color = "#1c4966"  # Static color for both light and dark themes
 
 st.markdown(f"""
@@ -67,8 +62,12 @@ st.write("### Step 1: Upload a photo, get a quick overview, and dive into detail
 # File uploader to allow users to upload an image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 image = None
-caption = ""
-description = ""
+
+# Create session state to hold caption and description to prevent re-generation
+if "caption" not in st.session_state:
+    st.session_state.caption = ""
+if "description" not in st.session_state:
+    st.session_state.description = ""
 
 if uploaded_file is not None and api_key:
     try:
@@ -76,14 +75,15 @@ if uploaded_file is not None and api_key:
         image = PIL.Image.open(uploaded_file)
         st.image(image, use_column_width=True)
         
-        # Generate a brief caption and a structured description for the image
-        caption, description = generate_image_summary(api_key, image)
+        # Generate a brief caption and a structured description only once
+        if not st.session_state.caption and not st.session_state.description:
+            caption, description = generate_image_summary(api_key, image)
+            st.session_state.caption = caption
+            st.session_state.description = description
         
-        # Display the auto-generated caption with style (formatted and colorful)
-        st.markdown(f"<p class='fade-in' style='color: #FF5733; font-size: 24px; text-align: center; font-weight: bold;'>{caption}</p>", unsafe_allow_html=True)
-        
-        # Display the structured and emoji-enhanced description
-        st.markdown(f"<p class='fade-in' style='color: #4CAF50; font-size: 18px;'>🔍 Image Details:\n\n{description}</p>", unsafe_allow_html=True)
+        # Display the caption and description from session state
+        st.markdown(f"<p class='fade-in' style='color: #FF5733; font-size: 24px; text-align: center; font-weight: bold;'>{st.session_state.caption}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p class='fade-in' style='color: #4CAF50; font-size: 18px;'>🔍 Image Details:\n\n{st.session_state.description}</p>", unsafe_allow_html=True)
         
     except Exception as e:
         if "HARM_CATEGORY_SEXUALLY_EXPLICIT" in str(e):
@@ -116,4 +116,4 @@ st.markdown(
     "<p style='text-align: center;'>🔮 <strong>|Brought to Life By</strong> - Harshal Kumawat| 🤖</p>"
     "</div>",
     unsafe_allow_html=True
-) 
+)
