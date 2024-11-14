@@ -89,7 +89,7 @@ if uploaded_file is not None and api_key:
         if "HARM_CATEGORY_SEXUALLY_EXPLICIT" in str(e):
             st.error("🚫 InsightLens couldn't generate details due to sensitive content detected. Try a different image!")
         else:
-            st.error("🔄 Something went wrong! Try refreshing or using another image.")
+            st.error(f"🔄 Something went wrong! Error: {e}")
 
 st.write("---")
 # Input prompt for the user's question, with a placeholder text
