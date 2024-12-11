@@ -73,7 +73,7 @@ if uploaded_file is not None and api_key:
     try:
         # Open the uploaded image with a fade-in effect
         image = PIL.Image.open(uploaded_file)
-        st.image(image, use_column_width=True)
+        st.image(image, use_container_width=True)
         
         # Generate a brief caption and a structured description only once
         if not st.session_state.caption and not st.session_state.description:
